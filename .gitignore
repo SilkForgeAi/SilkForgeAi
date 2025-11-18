@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.cache/
+.DS_Store
+
+# Environments
+.env
+.venv/
+venv/
+env/
+
+# Editors/IDE
+.vscode/
+.idea/
+
+# Outputs / Artifacts
+results/
+generations_2025/
+silkforge_results*/
+**/shards/
+*.jsonl
+*.pt
+*.pth
+wandb/
+
+

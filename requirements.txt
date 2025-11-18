@@ -1,0 +1,10 @@
+torch
+torchvision
+torchaudio
+transformers
+tqdm
+wandb
+matplotlib
+seaborn
+numpy
+
