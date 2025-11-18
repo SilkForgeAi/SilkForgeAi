@@ -1,6 +1,16 @@
-# SilkForge-Text-2025 (Safe, Domain-Agnostic Generative Template)
+# SilkForge-Text-2025 — Safe, Domain‑Agnostic Generative Template
+
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
+[![CPU Friendly](https://img.shields.io/badge/Runtime-CPU%20friendly-brightgreen.svg)](#)
+[![W&B Optional](https://img.shields.io/badge/Weights%20%26%20Biases-optional-lightgrey.svg)](https://wandb.ai/)
 
 A production-grade, domain-agnostic generative sampling template that produces generic structured text (JSON). Built for clarity, scale, and saleability — with zero domain-specific content.
+
+## TL;DR
+- One command to generate tens of thousands of JSON samples
+- Resumable runs, rank-safe indexing, atomic writes
+- Optional JSONL sharding and W&B logging
+- Plug-and-play custom generators
 
 ## Features
 - Distributed-safe sampling (rank-aware indexing, barriers, resumable runs)
@@ -73,6 +83,13 @@ print('Saved silkforge_text_histogram.png')
 PY
 ```
 
+## Outputs
+- Individual JSON files in the output directory
+- Optional JSONL shards in `<output>/shards/` (rank-safe rotation)
+- Example distribution:
+
+![Length Distribution](./silkforge_text_histogram.png)
+
 ## Distributed (optional)
 ```bash
 torchrun --nproc_per_node=4 safe_generative_template_2025.py \
@@ -86,7 +103,20 @@ torchrun --nproc_per_node=4 safe_generative_template_2025.py \
 - Use `--resume` to continue a partial run
 - Checkpoints saved every 5k samples (`checkpoint.json`)
 
+## What You Get
+- Clean, documented generator code
+- Reproducible sampling pipeline
+- Ready-made artifacts (Top‑20 list, histogram)
+- Plugin interface to drop in your own generator
+
+## FAQ
+- Does this require GPUs? No — CPU-only works; GPUs are supported if available.
+- Is W&B required? No — logging is optional and rank‑aware.
+- Can I bring my own generator? Yes — see `--custom-generator` and `--generator-class`.
+
 ## License
 Add your preferred license (MIT/Apache-2.0/etc.).
 
+—
+Maintained by `SilkForgeAi` on GitHub. Visit the org profile: https://github.com/SilkForgeAi
 
